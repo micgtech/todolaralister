@@ -17,8 +17,13 @@
 <body>
   
   <div class="container">
-    <p>Logged as <b>Mike.</b></p>
-    <a class="waves-effect waves-light btn">Logout</a>
+
+
+    <form action="{{ route('logout') }}" method="POST">
+      @csrf
+      <p>Logged as <b>{{ Auth::user()->name }}</b></p>
+      <button type="submit" class="waves-effect waves-light btn">Logout</button>
+    </form>
 
     <ul class="collapsible">
       <li>
