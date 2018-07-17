@@ -5,7 +5,9 @@
       <thead>
         <tr>
             <th>Task</th>
+            @isAdmin
             <th>Assigned to </th>
+            @endisAdmin
             <th>Edit </th>
             <th>Delete </th>
         </tr>
@@ -14,19 +16,27 @@
       <tbody>
         <tr>
           <td><a href="">Finihsh 10k Run</a></td>
+          @isAdmin
           <td><a href="">Neil DeGrasse</a></td>
+          @endisAdmin
           <td ><a title="edit" href="">  <i class="small material-icons">edit</i></a></td>
            <td ><a title="delete" href="">  <i class="small material-icons">delete_forever</i></a></td>
         </tr>
         <tr>
           <td><a href="">Cook Pasta Tomorrow</a></td>
+         
+          @isAdmin
           <td><a href="">Buzz Aldrin</a></td>
+          @endisAdmin
           <td ><a title="edit" href="">  <i class="small material-icons">edit</i></a></td>
            <td ><a title="delete" href="">  <i class="small material-icons">delete_forever</i></a></td>
         </tr>
         <tr>
           <td><a href="">Meeting with Stake holders</a></td>
+         
+          @isAdmin
           <td><a href="">Neil Armstrong</a></td>
+          @endisAdmin
           <td ><a title="edit" href="">  <i class="small material-icons">edit</i></a></td>
            <td ><a title="delete" href="">  <i class="small material-icons">delete_forever</i></a></td>
         </tr>
@@ -52,20 +62,31 @@
           </div>
         </div>
 
-        <div class="input-field col s12">
-          <select>
-            <option value="" disabled selected>Assign to:</option>
-            <option value="1">To myself: </option>
-            <option value="2">Buzz Aldrin 2</option>
-            <option value="3">Neil Armstrong</option>
-            <option value="4">Neil DeGrasse</option>
-            <option value="5">Stephen Hawkings </option>
-          </select>
-            <label>Assign Task</label>
-        </div>
+        @include('partials.coworkers')
+
         <a class="waves-effect waves-light btn">Add New Task</a>
 
     </form>
+
+
+    @isWorker
+    <br><br><br>
+    <form action="" class="col-sm-12">
+    <div class="input-field col s12">
+      <select>
+        <option value="" disabled selected>Send invitation to:</option>
+        <option value="1">To myself: </option>
+        <option value="2">Buzz Aldrin 2</option>
+        <option value="3">Neil Armstrong</option>
+        <option value="4">Neil DeGrasse</option>
+        <option value="5">Stephen Hawkings </option>
+      </select>
+        <label>Send invitation</label>
+    </div>
+    </form>
+    @endisWorker
+
+    @isAdmin
     <br><br><br>
     <ul class="collection with-header">
        <li class="collection-header"><h4>My Co-workers</h4></li>
@@ -82,8 +103,9 @@
         <div>Neil Armstrong  <a href="#" class="secondary-content">delete</a></div>
       </li>
     </ul>
+   @endisAdmin
 
-     <!-- FORM To EDIT TASK-->
+    <!-- FORM To EDIT TASK
     <form class="col s12">
         <div class="row">
           <div class="input-field col s12">
@@ -91,10 +113,7 @@
             <label for="task">Edit Task</label>
           </div>
         </div>
-
         <a class="waves-effect waves-light btn">Edit Task</a>
-
-    </form>
-
+    </form>-->
 
 @endsection

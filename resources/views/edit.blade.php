@@ -11,6 +11,8 @@
           </div>
         </div>
 
+        @include('partial.coworkers')
+
         <a class="waves-effect waves-light btn">Edit Task</a>
 
     </form>
